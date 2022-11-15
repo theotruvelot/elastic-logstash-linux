@@ -1,4 +1,5 @@
 #!/bin/bash
+git submodule update --init --recursive
 echo "Installing gnupg"
 sudo apt-get install gnupg
 
@@ -38,6 +39,10 @@ read -p "Enter the elastic search password: " elastic_password
 sed -i "s/%ELASTIC_PASSWORD%/$elastic_password/g" /etc/logstash/conf.d/90-output.conf
 
 chown -R logstash /etc/logstash
+
+mkdir /var/lib/logstash/plugins/inputs
+mkdir /var/lib/logstash/plugins/inputs/file
+chown -R logstash /var/lib/logstash/
 
 echo "Restart logstash"
 sudo systemctl restart logstash
