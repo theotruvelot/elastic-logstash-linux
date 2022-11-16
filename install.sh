@@ -40,8 +40,9 @@ sed -i "s/%ELASTIC_PASSWORD%/$elastic_password/g" /etc/logstash/conf.d/90-output
 
 chown -R logstash /etc/logstash
 
-mkdir /var/lib/logstash/plugins/inputs
-mkdir /var/lib/logstash/plugins/inputs/file
+sudo mkdir /var/lib/logstash/plugins
+sudo mkdir /var/lib/logstash/plugins/inputs
+sudo mkdir /var/lib/logstash/plugins/inputs/file
 chown -R logstash /var/lib/logstash/
 
 echo "Restart logstash"
