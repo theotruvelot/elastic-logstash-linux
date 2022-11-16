@@ -35,7 +35,7 @@ sed -i "s/%HOSTNAME%/$hostname/g" /etc/logstash/conf.d/90-output.conf
 read -p "Enter the elastic search username: " elastic_username
 sed -i "s/%ELASTIC_USERNAME%/$elastic_username/g" /etc/logstash/conf.d/90-output.conf
 
-read -p -s "Enter the elastic search password: " elastic_password
+read -s -p "Enter the elastic search password: " elastic_password
 sed -i "s/%ELASTIC_PASSWORD%/$elastic_password/g" /etc/logstash/conf.d/90-output.conf
 
 chown -R logstash /etc/logstash
